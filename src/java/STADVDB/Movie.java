@@ -16,10 +16,10 @@ public class Movie {
     public String url = "jdbc:mysql://localhost:3307/transportdb";
     public String username = "root";
     public String password = "p@ssword";
-    public PreparedStatement getBookings = null;
-    public PreparedStatement insertBookings = null;
-    public PreparedStatement deleteBookings = null;
-    public PreparedStatement updateBookings = null;
+    public PreparedStatement getMovies = null;
+    public PreparedStatement insertMovies = null;
+    public PreparedStatement deleteMovies = null;
+    public PreparedStatement updateMovies = null;
     public ResultSet result = null;
     public Connection connection;
 
