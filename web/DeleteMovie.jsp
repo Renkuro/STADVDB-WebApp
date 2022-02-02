@@ -21,7 +21,7 @@
                     movie_ID = request.getParameter("movie_ID");
                 }
                 
-                result = movie.deleteBookings(movie_ID);
+                result = movie.deleteMovies(movie_ID);
             }
         %>
                  <form name="myForm" action="DeleteMovie.jsp" method="POST">

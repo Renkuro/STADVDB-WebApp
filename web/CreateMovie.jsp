@@ -36,7 +36,7 @@
                 }
                              
              
-                 result = movie.AddMovie(movie_ID,movie_name,year,rank);
+                 result = movie.addMovie(movie_ID,movie_name,year,rank);
             }
         %>
          <form name="myForm" action="CreateMovie.jsp" method="POST">
