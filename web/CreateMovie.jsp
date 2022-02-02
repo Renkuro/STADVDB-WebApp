@@ -1,9 +1,4 @@
-<%-- 
-    Document   : create
-    Created on : Dec 12, 2019
-    Author     : Jed
---%>
-<%@page import = "CCINFOM.*, java.util.*"%>
+<%@page import = "STADVDB.*, java.util.*"%>
 <%@page import = "java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,13 +12,17 @@
         <%
             int result = 0;
             Movie movie = new movie();
+			int movie_ID;
 			String movie_name = new String();
 			int year;
 			float rank;
-			int movie_ID;
                 
             if(request.getParameter("submit") != null) {
  
+				if(request.getParameter("movie_ID") != null) {
+                   movie_ID = request.getParameter("movie_ID");
+                }
+				
                 if(request.getParameter("movie_name") != null) {
                     movie_name = request.getParameter("movie_name");
                 }
@@ -35,18 +34,19 @@
                 if(request.getParameter("rank") != null){
                    rank = request.getParameter("rank");
                 }
-                               
-                if(request.getParameter("movie_ID") != null) {
-                   movie_ID = request.getParameter("movie_ID");
-                }
+                             
              
-                 result = movie.AddMovie(movie_name,year,rank,movie_ID);
+                 result = movie.AddMovie(movie_ID,movie_name,year,rank);
             }
         %>
          <form name="myForm" action="CreateMovie.jsp" method="POST">
             <table border="0">
                 <tbody>
-                   <tr>
+					<tr>
+						<td>Movie ID  : </td>
+						<td><input type="text" name="movie_ID" value="2019-01-01" size="50" /></td>
+				    </tr>      
+			  	    <tr>
                         <td>Movie Title : </td>
                         <td><input type="text" name="movie_name" value="" size="50" /></td>
                     </tr>
@@ -57,11 +57,7 @@
                     <tr>
                         <td>Movie Ranking : </td>
                         <td><input type="text" name="rank" value="00:00:00" size="50" /></td>
-                    </tr>
-                    <tr>
-                        <td>Movie ID  : </td>
-                        <td><input type="text" name="movie_ID" value="2019-01-01" size="50" /></td>
-                    </tr>         
+                    </tr>   
                 </tbody>
             </table>
             <input type="reset" value="Clear" name="clear" />
