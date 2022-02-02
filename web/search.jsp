@@ -1,8 +1,3 @@
-<%-- 
-    Document   : search
-    Created on : Dec 12, 2019, 8:25:41 AM
-    Author     : Luis Angelo
---%>
 <%@page import = "CCINFOM.*, java.util.*"%>
 <%@page import = "java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,8 +10,8 @@
     <body>
         <h1>Search Record</h1>
         <%
-            Client client = new Client();
-            ResultSet result = client.getClients();
+            Movie movie = new Movie();
+            ResultSet result = movie.getMovies();
         %>
         <form name="myForm" action="display.jsp" method="POST">
             <table border="0">
@@ -26,7 +21,7 @@
                         <td>
                             <select name="username">
                                 <%while (result.next()) { %>
-                                <option value = "<%= result.getString("username")%>"><%= result.getString("first_name")%> <%= result.getString("last_name")%></option>
+                                <option value = "<%= result.getString("movie_name")%>"><%= result.getString("movie_name")%></option>
                                 <% } %>
                             </select>
                         </td>
