@@ -15,8 +15,8 @@
     <body>
         <h1>Search Movie Record</h1>
         <%
-            Client client = new Client();
-            ResultSet result = client.getClients();
+			Movie movie = new Movie();
+            ResultSet result = movie.getMovies();
         %>
         <form name="myForm" action="ShowMovies.jsp" method="POST">
             <table border="0">
@@ -26,7 +26,7 @@
                         <td>
                             <input type="text" placeholder="Search.." size="50">
                                 <%while (result.next()) { %>
-                                <a href> <%= result.getString("name")%> <%= result.getString("year")%> </a>
+                                <a href> <%= result.getString("movie_name")%> <%= result.getString("year")%> </a>
                                 <% } %>
                         </td>
                     </tr>
