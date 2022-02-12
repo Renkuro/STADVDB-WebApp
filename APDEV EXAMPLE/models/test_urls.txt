@@ -1,0 +1,22 @@
+localhost:9090/addEvent?date=2021-05-02&title=rest day from CCAPDEV&creator=Simon Que&description=a rest day from acads&invited=[{username:"Ian Racoma", response: true}, {username: "Car Bartolome", response: false}]
+
+localhost:9090/addEvent?event={"classification":"user","date":"2021-05-02","title":"CCAPDEV day","creator":"Simon","description":"fun day","invited":[{"username":"Ian","response":false},{"username":"Car","response":true}]}
+
+
+   { 'classification': 'user',
+     date: '2021-05-02',
+     title: 'CCAPDEV day',
+     creator: 'Simon',
+     description: 'fun day',
+     invited:
+      [ { username: 'Ian', response: false },
+        { username: 'Car', response: true } ] }
+
+    {
+        classification: 'user',
+        date: '2021-05-02',
+        title: 'rest day from CCAPDEV',
+        creator: 'Simon Que',
+        description: 'a rest day from acads',
+        invited: '[{username:"Ian Racoma", response: true}, {username: "Car Bartolome", response: false}]'
+    }

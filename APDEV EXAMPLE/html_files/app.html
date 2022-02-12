@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Car Bartolome">
+        <meta name="author" content="Simon Que">
+        <meta name="author" content="Ian Racoma">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <!-- <script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous">
+        </script> -->
+
+        <!-- Load Bootstrap -->
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+                integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+                crossorigin="anonymous"></script>
+
+        <title>KalendarNiyo</title>
+    </head>
+    <body>
+        <!-- navbar -->
+            <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="app.html">
+                        <img src="images/Website_Logo.png" alt="" width="55" height="40" class="d-inline-block align-text-center">
+                        KalendarNiyo
+                    </a>
+                    <form class="d-flex flex-grow-1">
+                        <input class="form-control m-3" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success m-3" type="submit">Search your calendar</button>
+                    </form>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-secondary" type="submit" formaction="account.html">Account</button>
+                        <pre> </pre>
+                        <button class="btn btn-outline-secondary" type="submit" formaction="index.html">Logout</button>
+                    </form>
+                </div>
+            </nav>
+
+            <!-- calendar -->
+            <div class="container-fluid d-flex flex-column text-center" style="height: calc(100% - 110px);">
+                <!-- month and year -->
+                <div class="row align-items-start">
+                    <div class="col">
+                        <a class="text-decoration-none" id="monthOfYear">April</a> <a class="text-decoration-none" id="YearToday">2021</a>
+                    </div>
+                </div>
+
+                <!-- days of the week -->
+                <div class="row align-items-start">
+                    <div class="col">
+                        Sun
+                    </div>
+                    <div class="col">
+                        Mon
+                    </div>
+                    <div class="col">
+                        Tue
+                    </div>
+                    <div class="col">
+                        Wed
+                    </div>
+                    <div class="col">
+                        Thu
+                    </div>
+                    <div class="col">
+                        Fri
+                    </div>
+                    <div class="col">
+                        Sat
+                    </div>
+                </div>
+
+                <!-- week 1 -->
+                <div class="row align-items-stretch flex-grow-1">
+                    <!-- day 1 -->
+                    <div class="col calendar_date" data-toggle="modal" data-target="#specialModal1">
+                        <a class="date_today text-secondary text-decoration-none">28</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#specialModal1">
+                        <a class="date_today text-secondary text-decoration-none">29</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#specialModal1">
+                        <a class="date_today text-secondary text-decoration-none">30</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#specialModal1">
+                        <a class="date_today text-secondary text-decoration-none">31</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">1</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" onclick="activeThis(this)" class="list-group-item list-group-item-action" disabled>Maundy Thursday</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">2</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" onclick="activeThis(this)" class="list-group-item list-group-item-action" disabled>Good Friday</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">3</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" onclick="activeThis(this)" class="list-group-item list-group-item-action" disabled>Black Saturday</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- week 2 -->
+                <div class="row align-items-stretch flex-grow-1">
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">4</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" onclick="activeThis(this)" class="list-group-item list-group-item-action" disabled>Easter Sunday</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">5</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" onclick="activeThis(this)" class="list-group-item list-group-item-action">Back To Class ;-;</button>
+                            <button type="button" onclick="activeThis(this)" class="list-group-item list-group-item-action">APDEV SUBMISSION!!</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">6</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">7</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">8</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">9</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">10</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- week 3 -->
+                <div class="row align-items-stretch flex-grow-1">
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">11</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">12</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">13</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" onclick="activeThis(this)" class="list-group-item list-group-item-action">Checkup with Dentist</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">14</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">15</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">16</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">17</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- week 4 -->
+                <div class="row align-items-stretch flex-grow-1">
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">18</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">19</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">20</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">21</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">22</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">23</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">24</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- week 5 -->
+                <div class="row align-items-stretch flex-grow-1">
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">25</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">26</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">27</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">28</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">29</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#eventsModal">
+                        <a class="date_today text-dark text-decoration-none">30</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date" data-toggle="modal" data-target="#specialModal2">
+                        <a class="date_today text-secondary text-decoration-none">1</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- week 6 -->
+                <div class="row align-items-stretch flex-grow-1">
+                    <div class="col calendar_date"  data-toggle="modal" data-target="#specialModal2">
+                        <a class="date_today text-secondary text-decoration-none">2</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date"  data-toggle="modal" data-target="#specialModal2">
+                        <a class="date_today text-secondary text-decoration-none">3</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date"  data-toggle="modal" data-target="#specialModal2">
+                        <a class="date_today text-secondary text-decoration-none">4</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date"  data-toggle="modal" data-target="#specialModal2">
+                        <a class="date_today text-secondary text-decoration-none">5</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date"  data-toggle="modal" data-target="#specialModal2">
+                        <a class="date_today text-secondary text-decoration-none">6</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date"  data-toggle="modal" data-target="#specialModal2">
+                        <a class="date_today text-secondary text-decoration-none">7</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                    <div class="col calendar_date"  data-toggle="modal" data-target="#specialModal2">
+                        <a class="date_today text-secondary text-decoration-none">8</a>
+                        <div class="events visually-hidden list-group">
+                            <button type="button" class="list-group-item list-group-item-action" disabled>No Events Today</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- success modal -->
+            <div class="modal fade" id="successModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Success!</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Changes have been successfully made!
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                OK!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- add new event modal -->
+            <div class="modal fade" id="addNewEventModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add New Event</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                              <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Event Name:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                              </div>
+                              <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Description:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                              </div>
+                              <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Invite People:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                              </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#successModal">
+                                Confirm Edits
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- edit event modal -->
+            <div class="modal fade" id="viewEditModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">View/Edit Event</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                              <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Event Name:</label>
+                                <input type="text" class="form-control" id="recipient-name" value="">
+                              </div>
+                              <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Description:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                              </div>
+                              <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Invite People:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                              </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#successModal">
+                                Confirm Edits
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- event modal for present month -->
+            <div class="modal fade" id="eventsModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> <a class="text-decoration-none" id="content"></a></h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#addNewEventModal" >
+                                Add New Event
+                            </button>
+                            <button type="button" id="editEventButton" class="btn btn-secondary visually-hidden" data-dismiss="modal" data-toggle="modal" data-target="#viewEditModal">
+                                View/Edit Event
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- event modal for future month -->
+            <div class="modal fade" id="specialModal2">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> <a class="text-decoration-none" id="content"></a></h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#addNewEventModal" >
+                                Add New Event
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#viewEditModal">
+                                View/Edit Event
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- event modal for past month -->
+            <div class="modal fade" id="specialModal1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> <a class="text-decoration-none" id="content"></a></h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            No Events Today
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#addNewEventModal" >
+                                Add New Event
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#viewEditModal">
+                                View/Edit Event
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function onMouseBgHover(x) {
+
+                }
+
+                function onMouseBgUnHover(x) {
+
+                }
+            </script>
+
+            <!-- function to toggle the active class of a button -->
+            <script>
+                function activeThis(x) {
+                    var buttons = x.parentElement.getElementsByTagName("button");
+                    if (x.classList.contains("active")) {
+                        x.classList.remove("active");
+                        document.getElementById("editEventButton").classList.add("visually-hidden");
+                    }
+                    else {
+                        for (i = 0; i < buttons.length; i++) {
+                            if (buttons.item(i).classList.contains("active")) {
+                                buttons.item(i).classList.remove("active");
+                            }
+                        }
+                        x.classList.add("active");
+                        if (document.getElementById("editEventButton").classList.contains("visually-hidden"))
+                            document.getElementById("editEventButton").classList.remove("visually-hidden");
+                    }
+
+                }
+            </script>
+
+            <!-- fill up the modals of each date in the present month with the events -->
+            <script>
+                var eventsModal = document.getElementById('eventsModal')
+                eventsModal.addEventListener('show.bs.modal', function (event) {
+                  var date = event.relatedTarget.getElementsByClassName("date_today").item(0).textContent;
+                  var month = document.getElementById("monthOfYear").textContent;
+                  var year = document.getElementById("YearToday").textContent;
+                  var modalTitle = eventsModal.querySelector('.modal-title');
+                  var modalBody = eventsModal.querySelector('.modal-body');
+                  modalTitle.textContent = 'Events on '+month.trim()+' '+date.trim()+', '+year.trim();
+                  modalBody.innerHTML = event.relatedTarget.getElementsByClassName("events").item(0).innerHTML;
+                })
+                eventsModal.addEventListener('hidden.bs.modal', function(event) {
+                    if (!(document.getElementById("editEventButton").classList.contains("visually-hidden"))) {
+                        document.getElementById("editEventButton").classList.add("visually-hidden")
+                    }
+                })
+            </script>
+
+            <!-- fill up the modals of each date in the past month with the events -->
+            <script>
+                var specialModal1 = document.getElementById('specialModal1')
+                specialModal1.addEventListener('show.bs.modal', function (event) {
+                  var date = event.relatedTarget.getElementsByClassName("date_today").item(0).textContent;
+                  var month = document.getElementById("monthOfYear").textContent;
+                  var year = document.getElementById("YearToday").textContent;
+                  var modalTitle = specialModal1.querySelector('.modal-title');
+                  var modalBody = specialModal1.querySelector('.modal-body');
+                  modalTitle.textContent = 'Events on March '+date.trim()+', '+year.trim();
+                  modalBody.innerHTML = event.relatedTarget.getElementsByClassName("events").item(0).innerHTML;
+                })
+                specialModal1.addEventListener('hidden.bs.modal', function(event) {
+                    if (!(document.getElementById("editEventButton").classList.contains("visually-hidden"))) {
+                        document.getElementById("editEventButton").classList.add("visually-hidden")
+                    }
+                })
+            </script>
+
+            <!-- fill up the modals of each date in the future month with the events -->
+            <script>
+                var specialModal2 = document.getElementById('specialModal2')
+                specialModal2.addEventListener('show.bs.modal', function (event) {
+                  var date = event.relatedTarget.getElementsByClassName("date_today").item(0).textContent;
+                  var month = document.getElementById("monthOfYear").textContent;
+                  var year = document.getElementById("YearToday").textContent;
+                  var modalTitle = specialModal2.querySelector('.modal-title');
+                  var modalBody = specialModal2.querySelector('.modal-body');
+                  modalTitle.textContent = 'Events on May '+date.trim()+', '+year.trim();
+                  modalBody.innerHTML = event.relatedTarget.getElementsByClassName("events").item(0).innerHTML;
+                })
+                specialModal2.addEventListener('hidden.bs.modal', function(event) {
+                    if (!(document.getElementById("editEventButton").classList.contains("visually-hidden"))) {
+                        document.getElementById("editEventButton").classList.add("visually-hidden")
+                    }
+                })
+
+                $(document).ready(function() {
+                    alert("hi");
+                })
+            </script>
+    </body>
+</html>

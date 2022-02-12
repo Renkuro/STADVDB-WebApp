@@ -1,0 +1,121 @@
+.info * {
+    display: inline-block;
+    margin: 10px;
+}
+
+.infofield {
+    width: 150px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+#accountHeader {
+    margin: 10px;
+}
+
+#accountDetails_parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 1%;
+    margin-right:1%;
+
+
+}
+
+#editpicture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: auto;
+}
+
+
+.profilePicture {
+    border-radius: 50% ;
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imageButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: auto;
+}
+
+.imageButton {
+    margin-top: 10%;
+}
+
+
+.editdetail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+
+    margin-bottom: 5%;
+}
+
+
+#editdetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.nameCell {
+    width: 100px;
+    text-align: right;
+}
+
+.fieldCell {
+    margin-right:50px;
+}
+
+.btn {
+    border: none;
+	background-color: #a0a0a0;
+	border-radius: 30px;
+	width: 180px;
+	margin: 0px auto;
+    
+}
+
+.btn2 {
+    border: none;
+	background-color: #a0a0a0;
+	border-radius: 30px;
+	width: 0 auto;
+	margin: 0px auto;
+    margin-right: 10px;
+}
+
+#footerbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 5%;
+}
+
+.footerbuttons {
+    display: inline-block;
+    margin:auto;
+}

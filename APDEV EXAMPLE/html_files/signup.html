@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Car Bartolome">
+        <meta name="author" content="Simon Que">
+        <meta name="author" content="Ian Racoma">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/signup.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        
+        <title>Sign Up to Web Calendar Application</title>
+    </head>
+    <body>
+
+        <nav class="navbar sticky-top navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="images/Website_Logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                    <span>KalendarNiyo</span>
+                </a>
+
+                <form class="d-flex">
+                    <button class="btn btn-outline-secondary" type="submit" formaction="signup.html">Sign Up</button>
+                    <pre> </pre>
+                    <button class="btn btn-outline-secondary" type="submit" formaction="login.html">Login</button>
+                </form>
+            </div>
+        </nav>
+
+        
+
+        <div class="container-fluid d-flex flex-column text-center" style="height: calc(100% - 74px); background-image: url('images/background_mmmm.png');">
+           
+            <br><br>
+            <form class="form" id="signupform" action="index.html">
+                <div id="required_details">
+                    <div id="required_header">
+                        <h2 class="sec_head">Sign Up</h2>
+                    </div>
+                    <div class="section">
+                        <div>
+                            <label id="emaillbl" for="email">Email:</label>
+                        </div>
+                        <div class="input" id="email">
+                            <input type="email" name="email" value="email@youremail.com"><br>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div>
+                            <label id="usernamelbl" for="username">Username:</label>
+                        </div>
+                        <div class="input" id="email">
+                            <input type="text" name="name" value="username"><br>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div>
+                            <label id="passwordlbl" for="password">Password:</label>
+                        </div>
+                        <div class="input" id="email">
+                            <input type="password" name="password" value="password"><br>
+                        </div>
+                    </div>
+                </div>
+                <div id="optional_details">
+                    <div id="required_header">
+                        <h2 class="sec_head">Optional Details</h2>
+                    </div>
+                    <div class="section">
+                        <div>
+                            <label id="birthdatelbl" for="birthdate">Birthdate:</label>
+                        </div>
+                        <div class="input" id="birthdate">
+                            <input type="date" name="birthdate" value="birthdate"><br>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-secondary" onclick="location.href='app.html'">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

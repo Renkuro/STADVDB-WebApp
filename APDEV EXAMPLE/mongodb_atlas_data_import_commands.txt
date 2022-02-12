@@ -1,0 +1,6 @@
+mongodb+srv://simonqq21:CCAPDEVBartRacsQue@cluster0.baxh1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority 
+
+mongodb+srv://simonqq21:CCAPDEVBartRacsQue@cluster0.baxh1.mongodb.net/G4_calendar?retryWrites=true&w=majority
+
+mongoimport --uri "mongodb+srv://simonqq21:CCAPDEVBartRacsQue@cluster0.baxh1.mongodb.net/G4_calendar?retryWrites=true&w=majority" --collection users --drop --file users.json
+mongoimport --uri "mongodb+srv://simonqq21:CCAPDEVBartRacsQue@cluster0.baxh1.mongodb.net/G4_calendar?retryWrites=true&w=majority" --collection events --drop --file events.json

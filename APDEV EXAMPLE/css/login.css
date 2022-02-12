@@ -1,0 +1,50 @@
+#content {
+	background-image: url("../images/background_mmmm.png");
+	padding-top: 20px;
+}
+
+#loginform {
+    width: 500px;
+    height: 300px;
+}
+
+#header1 {
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+.section_header h2 {
+	margin: 0px auto;
+	color: #efedeb;
+}
+
+.sec_head {
+	font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+	margin: 0px auto;
+	color: #efedeb;
+}
+
+.section {
+	width: 80%;
+	margin: auto;
+}
+
+#login_header {
+	margin-bottom: 10px;
+}
+
+.input {
+	margin-bottom: 10px;
+	color: grey;
+}
+
+input {
+	border: none;
+	background-color: #F3F3F3;
+	border-radius: 5px;
+	width: 100%;
+}

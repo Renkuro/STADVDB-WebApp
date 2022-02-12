@@ -1,0 +1,20 @@
+<nav class="navbar sticky-top navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/index">
+            <img src="images/Website_Logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            <span>KalendarNiyo</span>
+        </a>
+
+        <form class="d-flex">
+            {{#if app}}
+            <button type='button' class="btn btn-outline-secondary" onclick="parent.location='app'">App</button>
+            <pre> </pre>
+            {{/if}}
+            <button type='button' class="btn btn-outline-secondary" onclick="parent.location='register'">Sign Up</button>
+            <pre> </pre>
+            <button type='button' class="btn btn-outline-secondary" type="submit" onclick="parent.location='login'">Login</button>
+            <pre> </pre>
+            <button type='button' class="btn btn-outline-secondary" type="submit" onclick="parent.location='about'">About</button>
+        </form>
+    </div>
+</nav>

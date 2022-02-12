@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Car Bartolome">
+        <meta name="author" content="Simon Que">
+        <meta name="author" content="Ian Racoma">
+        <link rel="stylesheet" href="css/account.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+        <!-- Load Bootstrap -->
+        
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+                integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" 
+                crossorigin="anonymous"></script>
+
+   
+        <title>View/Edit Account Info</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="app.html">
+                    <img src="images/Website_Logo.png" alt="" width="55" height="40" class="d-inline-block align-text-center">
+                    KalendarNiyo
+                </a>
+                <form class="d-flex flex-grow-1">
+                    <input class="form-control m-3" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success m-3" type="submit">Search your calendar</button>
+                </form>
+                <form class="d-flex">
+                    <button class="btn btn-outline-secondary" type="submit" formaction="account.html">Account</button>
+                    <pre> </pre>
+                    <button class="btn btn-outline-secondary" type="submit" formaction="index.html">Logout</button>
+                </form>
+            </div>
+        </nav>
+
+
+        <div id="content">
+            <h1 id="accountHeader">Account Details</h1>
+
+            <hr>
+
+            <div id="accountDetails_parent">
+                <!--- EDIT PICTURE -->
+                <div id="editpicture">
+                    <img class="profilePicture" src="images/test.jpg">
+
+                    <br>
+                    <div id="imageButtons d-grid">
+
+                        <button type="button" class="btn btn-secondary">Upload Image</button>
+                        <button type="button" class="btn btn-secondary">Remove Image</button>
+
+                        <!--
+                        <div class="imageButton">
+                            <button type="button" class="btn btn-secondary">Upload Image</button>
+                        </div>
+                        <div class="imageButton">
+                            <button type="button" class="btn btn-secondary">Remove Image</button>
+                        </div>
+
+                        -->
+                        
+                    </div>
+                    <!---
+
+                    <input type="button" name="uploadimage" value="Upload Image">
+                    <br>
+                    <br>
+                    <input type="button" name="removeimage" value="Remove Image">
+
+                    -->
+                </div>
+
+                <!--- EDIT DETAILS -->
+                <div id="editdetails">
+
+                    <div class="editdetail">
+                        <div class="nameCell">Name: </div>
+
+                        <div class="fieldCell"><input type='text' class="infofield" readonly></div>
+
+                        <div><button type="button" class="btn btn-secondary gap-2">Edit Name</button></div>
+
+                    </div>
+
+                    <div class="editdetail">
+                        <div class="nameCell">Email: </div>
+
+                        <div class="fieldCell"><input type='email' class="infofield" readonly></div>
+
+                        <div><button type="button" class="btn btn-secondary">Edit Email Address</button></div>
+
+                    </div>
+
+                    <div class="editdetail">
+                        <div class="nameCell">Password: </div>
+
+                        <div class="fieldCell"><input type='password' class="infofield" readonly></div>
+
+                        <div><button type="button" class="btn btn-secondary">Edit Password</button></div>
+
+                    </div>
+
+                    <div class="editdetail">
+                        <div class="nameCell">Birthday: </div>
+
+                        <div class="fieldCell"><input type='date' class="infofield" readonly></div>
+
+                        <div><button type="button" class="btn btn-secondary">Edit birthdate</button></div>
+
+                    </div>
+
+                    </div>
+
+                </div>
+
+                <!--- BUTTONS AT THE BOTTOM -->
+
+                <div id="footerbutton" >
+                    <div class="footerbuttons" data-toggle="modal" data-target="#saveChange">
+                        <button type="button" class="btn btn-secondary">Save Changes</button>
+                    </div>
+
+                    <div class="footerbuttons" data-toggle="modal" data-target="#deleteAccount">
+                        <button type="button" class="btn btn-secondary">Delete Account</button>
+                    </div>
+
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="saveChange">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"> Save Changes </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Details will be changed
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    Back
+                                </button>
+                                <button type="button" class="btn btn-primary" onclick="location.href='app.html'">
+                                    Continue
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="deleteAccount">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"> Delete Account </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Your account will be permanently deleted.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    Back
+                                </button>
+                                <button type="button" class="btn btn-primary" onclick="location.href='index.html'">
+                                    Continue
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </body>
+</html>

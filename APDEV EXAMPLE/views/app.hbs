@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Car Bartolome">
+        <meta name="author" content="Simon Que">
+        <meta name="author" content="Ian Racoma">
+        <link rel="stylesheet" href="../css/base.css">
+        <link rel="stylesheet" href="../css/app.css">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous">
+        </script>
+        <script type="text/javascript">
+            var username = "{{username}}";
+        </script>
+        <script src="../js/app.js" charset="utf-8"></script>
+
+        <title>KalendarNiyo</title>
+    </head>
+    <body>
+        <!-- navbar -->
+            <nav class="navbar navbar-expand-sm navbar-light bg-light" id="app_navbar">
+                <div class="container-fluid">
+                    <!-- app icon -->
+                    <a class="navbar-brand" href="/">
+                        <img src="images/Website_Logo.png" alt="" width="55" height="40" class="d-inline-block align-text-center">
+                        KalendarNiyo
+                    </a>
+
+                    <!-- search input -->
+                    <form class="d-flex flex-grow-1">
+                        <input class="form-control m-3" type="search" placeholder="Search" aria-label="Search" id="searchbar">
+                        <button class="btn btn-outline-success m-3" type="button" id="submitsearch" data-bs-toggle="modal" data-bs-target="#searchResultModal">Search your calendar</button>
+                        <button class="btn btn-outline-success m-3" type="button" id="clearsearch">Clear search results</button>
+                    </form>
+                    <!-- account and logout button -->
+                    <form class="d-flex">
+                        <button class="btn btn-outline-secondary" type="submit" formaction="/account">Account</button>
+                        <pre> </pre>
+                        <button class="btn btn-outline-secondary" type="submit" formaction="/logout">Logout</button>
+                        <pre> </pre>
+                        <button type='button' class="btn btn-outline-secondary" type="submit" onclick="parent.location='about'">About</button>
+                    </form>
+                </div>
+            </nav>
+
+
+            <!-- calendar -->
+            <div class="container-fluid d-flex flex-column text-center" style="height: calc(100% - 110px);" id="calendar_body">
+                <!-- month and year -->
+                <div class="row align-items-start" id="monthYear">
+                    <div class="col-5"></div>
+                    <div class="col">
+                        <div class="input-group mb-3 mt-3">
+                          <select class="input-group-text" id="monthSelect">
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                          </select>
+                           <input type="text" class="form-control text-center" aria-label="Year Input" id="yearSelect">
+                        </div>
+                    </div>
+                    <div class="col-5"></div>
+                </div>
+
+                <!-- days of the week -->
+                <div class="row align-items-start" id="weekdays">
+                    <div class="col">
+                        Sun
+                    </div>
+                    <div class="col">
+                        Mon
+                    </div>
+                    <div class="col">
+                        Tue
+                    </div>
+                    <div class="col">
+                        Wed
+                    </div>
+                    <div class="col">
+                        Thu
+                    </div>
+                    <div class="col">
+                        Fri
+                    </div>
+                    <div class="col">
+                        Sat
+                    </div>
+                </div>
+            </div>
+
+            <!-- success modal -->
+            <div class="modal fade" id="successModal">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Success!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Changes have been successfully made!
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                                OK!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- add new event modal -->
+            <div class="modal fade" id="addNewEventModal">
+                <!-- hidden element for storing event details -->
+                <p id="addeventsmodaldate" hidden></p>
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Add New Event</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                            <form>
+                                  <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Event Name:</label>
+                                    <input type="text" class="title form-control" id="newEventTitle">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">Description:</label>
+                                    <textarea class="form-control" id="newEventDescription"></textarea>
+                                  </div>
+                                  <label for="message-text" class="col-form-label">Invite People:</label>
+                                  <!-- div for list of people invited to new event -->
+                                  <div id="invitedList">
+	                                  <div class="input-group mb-3">
+	                                    <span class="input-group-text" id="basic-addon1">@</span>
+	                                    <input type="text" class="form-control invited" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+	                                  </div>
+	                               </div>
+                                   <p id="inviteErrorAdd"></p>
+                                  <button type="button" class="btn btn-secondary" name="inviteAnother" id="inviteAnother">Invite another person</button>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-between">
+                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#successModal" id="addEventSubmitBtn">
+                                    Add Event
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- edit event modal -->
+            <div class="modal fade" id="viewEditModal">
+                <!-- hidden element for storing event details -->
+                <p id="editeventsmodaldate" hidden></p>
+                <p id="editeventseventid" hidden></p>
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">View/Edit Event</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                            	<form class="" action="index.html" method="post">
+                                <div class="mb-3">
+                                  <label for="recipient-name" class="col-form-label">Event Name:</label>
+                                  <input type="text" class="title form-control" id="editEventTitle">
+                                </div>
+                                <input type="text" class="title" id="editEventCreator" hidden>
+                                <div class="mb-3">
+                                  <label for="message-text" class="col-form-label">Description:</label>
+                                  <textarea class="form-control" id="editEventDescription"></textarea>
+                                </div>
+                                <label for="message-text" class="col-form-label">Invite People:</label>
+                                <!-- div for list of people invited to edit event -->
+                                <div class="mb-3" id="invitedEditor">
+                                    <div id="editorInvitedList">
+                                        <input type="text" class="invited"></input>
+                                    </div>
+                                  <p id="inviteErrorEdit"></p>
+                                  <button type="button" class="btn btn-secondary" name="editorInviteAnother" id="editorInviteAnother">Invite another person</button>
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-between">
+                                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#successModal" id="editEventSubmitBtn">
+                                    Confirm Edits
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- delete event modal -->
+            <div class="modal fade" id="deleteEventModal">
+                <!-- hidden element for storing event details -->
+                <p id="deleteeventid" hidden></p>
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5>Delete Event</h5>
+                        </div>
+                        <div class="modal-body">
+                        	Are you sure you want to delete this event?
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" id="deleteYes" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#successModal">
+                                Yes
+                            </button>
+                            <button type="button" class="btn btn-primary" id="deleteNo" data-bs-dismiss="modal">
+                                No
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- event modal for present month -->
+            <div class="modal fade" id="eventsModal">
+                <!-- hidden element for storing event details -->
+                <p id="eventsmodaldate" hidden></p>
+                <p id="eventid" hidden></p>
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> <a class="text-decoration-none" id="content"></a></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        	<span>&nbsp</span>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-between">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#addNewEventModal" >
+                                Add New Event
+                            </button>
+                            <button type="button" id="deleteEventButton" class="btn btn-secondary visually-hidden" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#deleteEventModal" >
+                                Delete Event
+                            </button>
+                            <button type="button" id="editEventButton" class="btn btn-secondary visually-hidden" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#viewEditModal">
+                                View/Edit Event
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="searchResultModal">
+            	<div class="modal-dialog modal-lg modal-dialog-scrollable">
+            		<div class="modal-content">
+            			<div class="modal-header">
+            				<h5 class="modal-title" id="searchResultsTitle"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+            			</div>
+            			<div class="modal-body" id="searchResultsContent">
+            			</div>
+            		</div>
+            	</div>
+            </div>
+    </body>
+
+
+</html>

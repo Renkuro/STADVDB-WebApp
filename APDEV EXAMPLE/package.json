@@ -1,0 +1,32 @@
+{
+  "name": "2021t2-g04",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DLSU-CCAPDEV/2021T2-G04.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DLSU-CCAPDEV/2021T2-G04/issues"
+  },
+  "homepage": "https://github.com/DLSU-CCAPDEV/2021T2-G04#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^3.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.11.1",
+    "hbs": "^4.1.2",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.5",
+    "multer": "^1.4.2"
+  }
+}

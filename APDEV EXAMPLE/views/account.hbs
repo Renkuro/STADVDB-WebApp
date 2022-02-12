@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Car Bartolome">
+        <meta name="author" content="Simon Que">
+        <meta name="author" content="Ian Racoma">
+
+
+        <!--
+        <link rel="stylesheet" href="../css/account.css">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <script src="../js/account.js" charset="utf-8 type="text/javascript"></script>
+        -->
+
+
+        <link rel="stylesheet" type="text/css" href="../css/base.css">
+        <link rel="stylesheet" href="../css/account.css">        
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        
+        <script src="../js/validator.min.js" type="text/javascript"></script>
+        <script src="../js/account.js" charset="utf-8" type="text/javascript"></script>
+     
+
+        <title>View/Edit Account Info</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="images/Website_Logo.png" alt="" width="55" height="40" class="d-inline-block align-text-center">
+                    KalendarNiyo
+                </a>
+                <form class="d-flex flex-grow-1">
+                    <input class="form-control m-3" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success m-3" type="submit">Search your calendar</button>
+                </form>
+                <form class="d-flex">
+                    <button class="btn btn-outline-secondary" type="submit" formaction="/account">Account</button>
+                    <pre> </pre>
+                    <button id='logoutBypass' class="btn btn-outline-secondary" type="submit" formaction="/logout">Logout</button>
+                </form>
+            </div>
+        </nav>
+
+
+        <div id="content">
+            <h1 id="accountHeader">Account Details</h1>
+
+            <hr>
+        
+            <div id="accountDetails_parent">
+            
+                <!--- EDIT PICTURE -->
+                <div id="editpicture">
+                    <!-- <img class="profilePicture" src="uploads/icon.jpg"> -->
+                    <img class="profilePicture" src="uploads/{{pfp}}">
+                    <br>
+                    <div id="imageButtons d-grid">
+                        
+                        <form name="upload" method="post" action="/uploadImage"  enctype="multipart/form-data">
+
+                            <input type="file" id="qq" name="{{username}}Image" accept="image/jpg, image/jpeg, image/png" required> 
+                            <label for="qq" class="btn btn-secondary"> Upload Here </label>
+                            <input type="submit" class="btn btn-secondary">
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <!--- EDIT DETAILS -->
+                <div id="editdetails">
+                        
+                    <!--- EDIT NAME --->
+                    <div class="editdetail form-floating mb-3">
+
+                        <!--- 
+                        <div class="nameCell">Name: </div>
+                        <div class="fieldCell"><input id="nameBox" type='text' class="infofield" value="{{username}}" readonly></div>
+                        --->
+
+                        <input type="text" class="form-control fieldCell" id="nameBox" value="{{username}}" readonly>
+                        <label for="nameBox">Username</label>
+
+                        <div><button id="editName" type="button" class="btn btn-secondary gap-2">Edit Username</button></div>
+
+                    </div>
+
+                    <!--- EDIT EMAIL --->
+                    <div class="editdetail form-floating mb-3">
+
+                        <!--
+                        <div class="nameCell">Email: </div>
+                        <div class="fieldCell"><input id="emailBox" type='email' class="infofield" value="{{email}}" readonly></div>
+                        -->
+
+                        <input type="text" class="form-control fieldCell" id="emailBox" value="{{email}}" readonly>
+                        <label for="emailBox">Email</label>
+
+                        <div><button id="editEmail" type="button" class="btn btn-secondary gap-2">Edit Email Address</button></div>
+
+                    </div>
+
+                    <!--- EDIT BIRTHDATE --->
+                    <div class="editdetail form-floating mb-3">
+
+                        <input type="date" class="form-control fieldCell" id="bdayBox" value="{{birthdate}}" readonly>
+                        <label for="bdayBox">Birthdate</label>
+
+                        <div><button id="editBday" type="button" class="btn btn-secondary gap-2">Edit birthdate</button></div>
+
+                    </div>
+
+                </div>
+        
+            </div>
+
+            <!--- BUTTONS AT THE BOTTOM -->
+
+            <div id="footerbutton" >
+
+                <div class="footerbuttons" data-toggle="modal" data-target="#saveChange">
+                    <button id="saveChanges" type="button" class="btn btn-secondary">Save Changes</button>
+                </div>
+                    
+                <div class="footerbuttons" data-toggle="modal" data-target="#pwChange">
+
+                    <!-- PASSWORD MODAL -->
+                    <button id="editPassword" type="button" class="btn btn-secondary">Edit Password</button>
+    
+                </div>
+
+                <div class="footerbuttons" data-toggle="modal" data-target="#deleteAccount">
+                    <button type="button" class="btn btn-secondary">Delete Account</button>
+                </div>
+
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="modal fade" id="pwChange">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> Change Password </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="currentPassword">
+                                <label for="floatingInput">Current Password</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="newPassword">
+                                <label for="newPassword">New Password</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="confirmPassword">
+                                <label for="confirmPassword">Confirm Password</label>
+                            </div>
+
+                            <p id="errorPassword"> </p>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                Back
+                            </button>
+
+                            <!-- SUBMIT BUTTON -->
+                            <button type="button" class="btn btn-primary" id="changePW">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUBMIT CHANGES -->
+            <div class="modal fade" id="saveChange">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> Save Changes </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Details will be changed
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                Back
+                            </button>
+
+                            <!-- SUBMIT BUTTON -->
+                            <button type="button" class="btn btn-primary" id="submit">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DELETE -->
+            <div class="modal fade" id="deleteAccount">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> Delete Account </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Your account will be permanently deleted.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                Back
+                            </button>
+                            <button type="button" class="btn btn-primary" id="delete">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+
+    </body>
+</html>

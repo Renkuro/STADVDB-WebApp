@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+        font-family: 'Pt Sans', 'sans-serif';
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: auto;
+}
+
+.description {
+	background-color: #585C64;
+	border-radius: 1%;
+	color: white;
+	width: 50%;
+	padding:10px;
+	margin: 2% auto;
+	text-align: left;
+}

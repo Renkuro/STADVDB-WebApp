@@ -1,0 +1,39 @@
+body {
+    overflow: auto;
+}
+
+div.calendar_date:hover {
+    background-color: #f2f2f2; cursor: pointer;
+}
+
+#event_editor_header {
+    background-color: #C4C4C4;
+    width: 508px;
+    height: 70px;
+    margin: 0px 0px 20px 10px;
+}
+
+#event_editor_header h1 {
+    color: black;
+    text-align: center;
+    padding: 15px;
+    font-size: 30px;
+}
+
+#eventbar_div form {
+    overflow: auto;
+    background-color: #C4C4C4;
+    width: 580px;
+    height: 600px;
+    margin: 0px 0px 20px 10px;
+    padding: 20px;
+}
+
+#eventbar_div form * {
+    margin: 0px 0px 10px;
+}
+
+#eventbar_div * {
+    font-size: 15px;
+    border-width: 2px;
+}

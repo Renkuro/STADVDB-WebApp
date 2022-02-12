@@ -1,0 +1,21 @@
+{"_id":{"$oid":"6086b9592e6c7a1b637776b2"},"email":"ttt@yyy.jjj","username":"www","password":"rret","birthdate":{"$date":"2021-04-30T00:00:00Z"},"__v":0}
+{"_id":{"$oid":"6086c68b26dadf219420d765"},"email":"abc@123.ph","username":"tu","password":"B4m9JxmRCLhuc7L","birthdate":null,"__v":0}
+{"_id":{"$oid":"6086c6e2290eae22125a864e"},"email":"abc@123.ph","username":"tu","password":"ss","birthdate":null,"__v":0}
+{"_id":{"$oid":"6086c7f8290eae22125a864f"},"email":"abc@123.ph","username":"tu","password":"y","birthdate":null,"__v":0}
+{"_id":{"$oid":"6086c86d290eae22125a8650"},"email":"abc@123.ph","username":"tu5","password":"5","birthdate":{"$date":"2021-04-04T00:00:00Z"},"__v":0}
+{"_id":{"$oid":"6086d3d7c69fd716c2673ee9"},"email":"asdf@asdf.asdf","username":"asdf","password":"asdfqwer","birthdate":{"$date":"2021-04-04T00:00:00Z"},"__v":0}
+{"_id":{"$oid":"6086d880f50c4d18cad98419"},"email":"asdf2@asdf.asdf","username":"asdf2","password":"q","birthdate":{"$date":"2021-04-23T00:00:00Z"},"__v":0}
+{"_id":{"$oid":"60876513017a6017ad025f71"},"email":"a@a.g","username":"12345","password":"B4m9JxmRCLhuc7L","birthdate":null,"__v":0}
+{"_id":{"$oid":"6087747d21bee31e36b4e564"},"email":"s@s.s","username":"trew","password":"B4m9JxmRCLhuc7L","birthdate":null,"__v":0}
+{"_id":{"$oid":"6087787963463d208ba5ad02"},"email":"abc@def.ghi","username":"abcdef","password":"abcdefgh","birthdate":{"$date":"2021-04-11T00:00:00Z"},"__v":0}
+{"_id":{"$oid":"60890ddea01b89223e235f3f"},"email":"a@b.c","username":"abc","password":"abcdefgh","birthdate":null,"__v":0}
+{"_id":{"$oid":"60890e5a1397712286e642c0"},"email":"a@b.d","username":"abd","password":"abcdefgh","birthdate":null,"__v":0}
+{"_id":{"$oid":"60895c8412684a1861c7c3f6"},"email":"t@t.t1","username":"test1","password":"12345678","birthdate":{"$date":"2021-03-29T00:00:00Z"},"__v":0}
+{"_id":{"$oid":"608960bed31d81271d448644"},"email":"t@t.t1","username":"test1","password":"12345678","birthdate":{"$date":"2021-03-29T00:00:00Z"},"__v":0}
+{"_id":{"$oid":"608a64d04f94531ef366ad2e"},"email":"t@t.t2","username":"test2","password":"12345678","birthdate":null,"__v":0}
+{"_id":{"$oid":"608a65f53c3955214dbb8151"},"email":"t@t3","username":"t3","password":"12345678","birthdate":null,"__v":0}
+{"_id":{"$oid":"608a66143c3955214dbb8152"},"email":"t@t1","username":"t1","password":"12345678","birthdate":null,"__v":0}
+{"_id":{"$oid":"608a66443c3955214dbb8153"},"email":"simon_justin_que@dlsu.edu.ph","username":"Simon Que","password":"12345678","birthdate":null,"__v":0}
+{"_id":{"$oid":"608e046c62318f0d449da179"},"email":"t@t2","username":"test2_1","password":"12345678","birthdate":{"$date":"2021-05-01T00:00:00Z"},"__v":0}
+{"_id":{"$oid":"608e04d17359470e8ba3f582"},"email":"t@t2","username":"test2_1","password":"12345678","birthdate":{"$date":"2021-05-01T00:00:00Z"},"__v":0}
+{"_id":{"$oid":"608e24a413b0ac3d667d9ac0"},"email":"t@t5","username":"test5","password":"12345678","birthdate":null,"__v":0}

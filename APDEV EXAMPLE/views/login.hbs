@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Car Bartolome">
+        <meta name="author" content="Simon Que">
+        <meta name="author" content="Ian Racoma">
+        <link rel="stylesheet" href="../css/base.css">
+        <link rel="stylesheet" href="../css/login.css">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="../js/login.js" charset="utf-8 type="text/javascript"></script>
+        <title>Login to Web Calendar Application</title>
+    </head>
+
+    <body>
+        <nav class="navbar sticky-top navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="images/Website_Logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                    <span>KalendarNiyo</span>
+                </a>
+
+                <form class="d-flex">
+                    <button type='button' class="btn btn-outline-secondary" onclick="parent.location='register'">Sign Up</button>
+                    <pre> </pre>
+                    <button type='button' class="btn btn-outline-secondary" type="submit" onclick="parent.location='login'">Login</button>
+                </form>
+            </div>
+        </nav>
+        <div class="container-fluid d-flex flex-column text-center" style="height: calc(100% - 74px); background-image: url('images/background_mmmm.png');">
+            <form class="form" id='loginform' action="/app" method="POST" style="margin-top: 30px">
+                <div id="required_details">
+                    <div id="login_header">
+                        <h2 class="sec_head">Login</h2>
+                    </div>
+                    <div id="error" style="color: red">{{error}}</div>
+                    <div class="section">
+                        <div>
+                            <label for="username">Username:</label>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="username" id="username" placeholder="username"><br>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div>
+                            <label for="password">Password:</label>
+                        </div>
+                        <div class="input">
+                            <input type="password" name="password" id="password" placeholder="password"><br>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary" id="submit">Login</button>
+                <button type="button" class="btn btn-secondary" onclick="location.href='index'">Back</button>
+            </form>
+
+        </div>
+
+
+    </body>
+</html>
